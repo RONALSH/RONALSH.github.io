@@ -83,6 +83,28 @@
       
       
       
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
       
         
         <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
@@ -127,15 +149,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -197,6 +222,14 @@
         class="navbar-menu-item">
         
           分类
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          关于
         
       </a>
     
@@ -277,7 +310,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>2</span>
+    <span>3</span>
     <span>标签</span>
   </a>
 </div>
@@ -304,9 +337,9 @@
         </div>
       </a>
     
-      <a href="/categories/11111/">
+      <a href="/categories/%E6%B5%8B%E8%AF%95/">
         <div class="categories-list-item">
-          11111
+          测试
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -326,15 +359,21 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/hello/" 
-        title="hello">
-        <div class="tags-list-item">hello</div>
+        href="/tags/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/" 
+        title="文章测试">
+        <div class="tags-list-item">文章测试</div>
       </a>
     
       <a 
-        href="/tags/1111/" 
-        title="1111">
-        <div class="tags-list-item">1111</div>
+        href="/tags/%E6%96%87%E7%AB%A0/" 
+        title="文章">
+        <div class="tags-list-item">文章</div>
+      </a>
+    
+      <a 
+        href="/tags/hello/" 
+        title="hello">
+        <div class="tags-list-item">hello</div>
       </a>
     
   </div>
@@ -385,12 +424,12 @@
     <article class="card card-content">
       <a href="/2022/08/10/%E4%BD%A0%E5%A5%BD/">
         <h1 class="post-title">
-          11111
+          测试
         </h1>
       </a>
       <div class="card-excerpt">
         
-          1111
+          测试
         
       </div>
       <div class="card-post-footer">
@@ -411,9 +450,9 @@
             
               
               <a 
-                href="/categories/11111/" 
+                href="/categories/%E6%B5%8B%E8%AF%95/" 
                 class="post-meta-link">
-                11111
+                测试
               </a>
             
           
@@ -485,7 +524,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2022-08-10</div>
-        <a href="/2022/08/10/%E4%BD%A0%E5%A5%BD/"><div class="recent-posts-item-content">11111</div></a>
+        <a href="/2022/08/10/%E4%BD%A0%E5%A5%BD/"><div class="recent-posts-item-content">测试</div></a>
       </div>
     
       <div class="recent-posts-item">

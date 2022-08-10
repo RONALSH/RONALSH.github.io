@@ -18,12 +18,12 @@
   <link 
     rel="icon" 
     href="/">
-  <title>11111</title>
+  <title>测试</title>
   
     
       <meta 
         property="og:title" 
-        content="11111">
+        content="测试">
     
     
       <meta 
@@ -38,7 +38,7 @@
     
       <meta 
         property="og:img" 
-        content="1111">
+        content="测试">
     
     
       <meta 
@@ -57,7 +57,7 @@
         
           <meta 
             property="og:article:tag" 
-            content="1111">
+            content="文章测试">
         
       
     
@@ -109,6 +109,28 @@
       
       
       
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
       
         
         <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
@@ -153,15 +175,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -223,6 +248,14 @@
         class="navbar-menu-item">
         
           分类
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          关于
         
       </a>
     
@@ -303,7 +336,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>2</span>
+    <span>3</span>
     <span>标签</span>
   </a>
 </div>
@@ -320,7 +353,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
       </div>
     </article>
   
@@ -342,9 +375,9 @@
         </div>
       </a>
     
-      <a href="/categories/11111/">
+      <a href="/categories/%E6%B5%8B%E8%AF%95/">
         <div class="categories-list-item">
-          11111
+          测试
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -364,15 +397,21 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/hello/" 
-        title="hello">
-        <div class="tags-list-item">hello</div>
+        href="/tags/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/" 
+        title="文章测试">
+        <div class="tags-list-item">文章测试</div>
       </a>
     
       <a 
-        href="/tags/1111/" 
-        title="1111">
-        <div class="tags-list-item">1111</div>
+        href="/tags/%E6%96%87%E7%AB%A0/" 
+        title="文章">
+        <div class="tags-list-item">文章</div>
+      </a>
+    
+      <a 
+        href="/tags/hello/" 
+        title="hello">
+        <div class="tags-list-item">hello</div>
       </a>
     
   </div>
@@ -387,7 +426,7 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      11111
+      测试
     </h1>
   </header>
   <div class="post-meta post-show-meta">
@@ -402,15 +441,15 @@
       <span class="dot"></span>
       
         <a 
-          href="/categories/11111/" 
+          href="/categories/%E6%B5%8B%E8%AF%95/" 
           class="post-meta-link">
-          11111
+          测试
         </a>
       
     
     
       <span class="dot"></span>
-      <span>50 字</span>
+      <span>46 字</span>
     
   </div>
   
@@ -425,9 +464,9 @@
         
           
           <a 
-            href="/tags/1111/" 
+            href="/tags/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/" 
             class="post-meta-link">
-            1111
+            文章测试
           </a>
         
       </div>
@@ -437,8 +476,22 @@
   <div 
     id="section" 
     class="post-content">
-    <p>​&#96;&#96;&#96;javascript<br>const smoothScrollToTop &#x3D; () &#x3D;&gt; {<br>  let yTopValve &#x3D; (window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop);<br>  if (yTopValve &gt; 1) {<br>    window.requestAnimationFrame(smoothScrollToTop);<br>    scrollTo(0, Math.floor(yTopValve * 0.85));<br>  } else {<br>    scrollTo(0, 0);<br>  }<br>};</p>
-<p>setTimeout(() &#x3D;&gt; {<br>  document.getElementById(‘scrollbutton’).onclick &#x3D; smoothScrollToTop;<br>}, 0);<br>​&#96;&#96;&#96;</p>
+    <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">smoothScrollToTop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> yTopValve <span class="token operator">=</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>pageYOffset <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollTop <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollTop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>yTopValve <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>smoothScrollToTop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>yTopValve <span class="token operator">*</span> <span class="token number">0.85</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'scrollbutton'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>onclick <span class="token operator">=</span> smoothScrollToTop<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
   </div>
   <div>
@@ -495,7 +548,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -509,7 +562,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
     </article>
   
   
@@ -525,7 +578,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2022-08-10</div>
-        <a href="/2022/08/10/%E4%BD%A0%E5%A5%BD/"><div class="recent-posts-item-content">11111</div></a>
+        <a href="/2022/08/10/%E4%BD%A0%E5%A5%BD/"><div class="recent-posts-item-content">测试</div></a>
       </div>
     
       <div class="recent-posts-item">
